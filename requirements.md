@@ -73,14 +73,8 @@ Git 2.24+
 21. Create Exception class which will be used into orElseThrow for Optional from getSubscriptionByBankCardNumber().
 22. Add a new method for Service interface and implement it. Demonstrate this method ino application module:
 - List<Subscription> getAllSubscriptionsByCondition(Predicate<Subscription>);
+
 23. Reimplement createBankCard with method reference (ex: CreditBankCard::new).
 24. Add to module-info jar for each implementation module :
 - provides [interface] with [implementation]
 25. Add a module with Service implementation. Try to use ServiceLoader.load() for module loading.
-    References
-    •	Java 8 new features
-    •	Java 9 new features
-    •	- modules
-    •	Java 10 new features
-    •	- var
-    •	Java 11 new features

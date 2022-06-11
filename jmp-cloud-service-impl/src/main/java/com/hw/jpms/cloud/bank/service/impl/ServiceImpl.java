@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ServiceImpl implements IService {
 
@@ -32,8 +34,15 @@ public class ServiceImpl implements IService {
   }
 
   @Override
+  public List<Subscription> getAllSubscriptionsByCondition(Predicate<Subscription> filterCondition) {
+    return subscriptions.stream()
+        .filter(filterCondition)
+        .collect(Collectors.toList());
+  }
+
+  @Override
   public List<User> getAllUsers() {
-    return new ArrayList<>(storage.keySet());
+    return storage.keySet().stream().collect(Collectors.toUnmodifiableList());
   }
 
 }
